@@ -6,6 +6,9 @@ import Navbar from './components/Navbar/Navbar';
 
 import { GlobalStyle } from './styles/global';
 import { useTheme } from './context/ThemeContext';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import CountryDetail from './pages/CountryDetail';
+import Home from './pages/Home';
 
 const App = () => {
   const { isDarkMode } = useTheme();
@@ -16,7 +19,13 @@ const App = () => {
       <Navbar />
 
       <Box>
-        <ListOfCountries />
+        <Routes>
+          <Route path='/home' element={<Home />}>
+            <Route path=':id' element={<CountryDetail />} />
+          </Route>
+          <Route path='*' element={<Navigate to={'/home'} />} />
+          <Route path='' element={<Navigate to={'/home'} />} />
+        </Routes>
       </Box>
     </>
   );
