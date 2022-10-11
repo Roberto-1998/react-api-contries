@@ -1,16 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ListOfCountries from './components/ListOfCountries/ListOfCountries';
+import { Box } from './App.styles';
 
-import Navbar from './components/Navbar';
-import ThemeProvider from './context/ThemeContext';
+import Navbar from './components/Navbar/Navbar';
 
 import { GlobalStyle } from './styles/global';
+import { useTheme } from './context/ThemeContext';
 
 const App = () => {
+  const { isDarkMode } = useTheme();
+
   return (
-    <ThemeProvider>
-      <GlobalStyle />
+    <>
+      <GlobalStyle isDarkMode={isDarkMode} />
       <Navbar />
-    </ThemeProvider>
+
+      <Box>
+        <ListOfCountries />
+      </Box>
+    </>
   );
 };
 

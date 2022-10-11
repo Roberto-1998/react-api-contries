@@ -1,0 +1,1 @@
+export const COUNTRIES_LIST_KEY = 'COUNTRIES_LIST_KEY';
