@@ -23,8 +23,8 @@ const ListOfCountries = () => {
   );
 
   const initialCountriesList = useMemo(
-    () => (filteredCountries.length > 0 ? filteredCountries : countries),
-    [filteredCountries, countries],
+    () => (searchText !== '' ? filteredCountries : countries),
+    [filteredCountries, countries, searchText],
   );
 
   if (isError) return <h4>Ups..something went wrong</h4>;
