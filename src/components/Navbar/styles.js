@@ -5,6 +5,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
+  height: 70px;
 `;
 
 export const Button = styled.button`
@@ -13,4 +14,7 @@ export const Button = styled.button`
   gap: 10px;
   cursor: pointer;
   font-weight: 300;
+
+  background-color: transparent;
+  border: none;
 `;
