@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useGetOneCountry from '../../hooks/useGetOneCountry';
+import { FadeLoader } from 'react-spinners';
 import {
   arrayOfCurrencies,
   arrayOfLanguages,
@@ -8,13 +9,15 @@ import {
 import { BsArrowLeft } from 'react-icons/bs';
 import { Button, Image, ImageBox, InfoBox } from './styles';
 
+import { Loader } from '../../components/Loader';
+
 const CountryDetail = () => {
   const { id } = useParams();
   const { data: country, isError, isLoading } = useGetOneCountry(id);
 
   if (isError) return <p>Ups...something went wrong</p>;
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loader />;
 
   const {
     name,

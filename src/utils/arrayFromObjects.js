@@ -1,7 +1,7 @@
 export const arrayOfLanguages = (languagesObject) => {
   const languages = [];
 
-  for (const [clave, valor] of Object.entries(languagesObject)) {
+  for (const [, valor] of Object.entries(languagesObject)) {
     languages.push(valor);
   }
 
@@ -11,7 +11,7 @@ export const arrayOfLanguages = (languagesObject) => {
 export const arrayOfCurrencies = (currenciesObject) => {
   const currencies = [];
 
-  for (const [clave, valor] of Object.entries(currenciesObject)) {
+  for (const [, valor] of Object.entries(currenciesObject)) {
     currencies.push(valor.name);
   }
 

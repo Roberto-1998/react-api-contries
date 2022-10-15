@@ -6,6 +6,7 @@ import { selectOptions } from '../../constants/selectOptions';
 import { Country } from '../Country';
 import { SearchCountry } from '../SearchCountry';
 import { SelectRegion } from '../SelectRegion';
+import { Loader } from '../Loader';
 
 const ListOfCountries = () => {
   const ref = useRef(null);
@@ -43,7 +44,7 @@ const ListOfCountries = () => {
 
   if (isError) return <h4>Ups..something went wrong</h4>;
 
-  if (isLoading) return <h4>Loading...</h4>;
+  if (isLoading) return <Loader />;
 
   return (
     <>
