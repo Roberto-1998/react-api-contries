@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { List } from './styles';
 import useGetCountries from '../../hooks/useGetCountries';
 
@@ -7,40 +7,18 @@ import { Country } from '../Country';
 import { SearchCountry } from '../SearchCountry';
 import { SelectRegion } from '../SelectRegion';
 import { Loader } from '../Loader';
+import useGetFilteredCountries from '../../hooks/useGetFilteredCountries';
 
 const ListOfCountries = () => {
   const ref = useRef(null);
   const [searchText, setSearchText] = useState('');
-  const { data: countries = [], isError, isLoading } = useGetCountries();
   const [region, setRegion] = useState('All');
-
-  const handleSearch = () => {
-    setSearchText(ref.current.value);
-  };
-
-  const filteredCountries = useMemo(() => {
-    if (region !== 'All') {
-      if (searchText !== '') {
-        return countries
-          .filter((country) =>
-            country.name.common
-              .toLowerCase()
-              .includes(searchText.toLowerCase()),
-          )
-          .filter((country) => country.region === region);
-      }
-      return countries.filter((country) => country.region === region);
-    }
-
-    if (region === 'All') {
-      if (searchText !== '') {
-        return countries.filter((country) =>
-          country.name.common.toLowerCase().includes(searchText.toLowerCase()),
-        );
-      }
-      return countries;
-    }
-  }, [searchText, region, countries]);
+  const { data: countries = [], isError, isLoading } = useGetCountries();
+  const { filteredCountries } = useGetFilteredCountries(
+    region,
+    searchText,
+    countries,
+  );
 
   if (isError) return <h4>Ups..something went wrong</h4>;
 
@@ -51,7 +29,7 @@ const ListOfCountries = () => {
       <div className='flex justify-between flex-wrap mt-12'>
         <SearchCountry
           searchText={searchText}
-          handleSearch={handleSearch}
+          handleSearch={() => setSearchText(ref.current.value)}
           reference={ref}
         />
 

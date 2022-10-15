@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useGetOneCountry from '../../hooks/useGetOneCountry';
-import { FadeLoader } from 'react-spinners';
 import {
   arrayOfCurrencies,
   arrayOfLanguages,

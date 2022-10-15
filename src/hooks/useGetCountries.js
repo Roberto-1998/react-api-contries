@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useQuery } from 'react-query';
 import { COUNTRIES_LIST_KEY } from '../constants/queries';
 import { getAllCountries } from '../services/contry.service';
