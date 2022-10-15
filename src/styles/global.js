@@ -34,15 +34,16 @@ body{
   }
    
 
-h1, h4, p, button, ul, li, button>svg{
+h1, h4, p, button, ul, li, button>svg, input, select{
     color:${(props) => (props.isDarkMode ? white : very_dark_blue_text)};
     
 }
 
-nav, input, button{
+nav, input, button, select{
   background-color:${(props) =>
-    props.isDarkMode ? dark_blue : very_light_gray}
-}
+    props.isDarkMode ? dark_blue : very_light_gray};
+};
+
 
 
 

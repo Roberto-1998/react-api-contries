@@ -6,5 +6,6 @@ export const Box = styled.div`
 
   @media (min-width: 768px) {
     width: 90%;
+    margin: 0 auto;
   }
 `;

@@ -8,5 +8,14 @@ export const List = styled.div`
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  gap: 60px;
+`;
+
+export const Input = styled.input`
+  width: 500px;
+  padding: 15px;
+`;
+
+export const Select = styled.select`
+  width: 200px;
+  padding: 15px;
 `;

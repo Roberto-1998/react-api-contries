@@ -1,55 +1,28 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { List } from './styles';
+import { List, Input, Select } from './styles';
 import useGetCountries from '../../hooks/useGetCountries';
 import Country from '../Country/Country';
+
+const selectOptions = [
+  { text: 'Filter by Region', value: 'All' },
+  { text: 'America', value: 'Americas' },
+  { text: 'Africa', value: 'Africa' },
+  { text: 'Asia', value: 'Asia' },
+  { text: 'Oceania', value: 'Oceania' },
+  { text: 'Europe', value: 'Europe' },
+];
 
 const ListOfCountries = () => {
   const ref = useRef(null);
   const [searchText, setSearchText] = useState('');
   const { data: countries = [], isError, isLoading } = useGetCountries();
   const [region, setRegion] = useState('All');
-  console.log(
-    '🚀 ~ file: ListOfCountries.js ~ line 11 ~ ListOfCountries ~ region',
-    region,
-  );
 
   const handleSearch = () => {
     setSearchText(ref.current.value);
   };
 
   const filteredCountries = useMemo(() => {
-    /*  switch (region) {
-      case region !== 'All':
-        switch (searchText) {
-          case searchText !== '':
-            return countries
-              .filter((country) =>
-                country.name.common
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase()),
-              )
-              .filter((country) => country.region === region);
-
-          case searchText === '':
-            return countries.filter((country) => country.region === region);
-        }
-        break;
-
-      case region === 'All':
-        switch (searchText) {
-          case searchText !== '':
-            return countries.filter((country) =>
-              country.name.common
-                .toLowerCase()
-                .includes(searchText.toLowerCase()),
-            );
-
-          case searchText === '':
-            return countries;
-        }
-        break;
-    } */
-
     if (region !== 'All') {
       if (searchText !== '') {
         return countries
@@ -79,16 +52,25 @@ const ListOfCountries = () => {
 
   return (
     <>
-      <input type='text' value={searchText} onChange={handleSearch} ref={ref} />
+      <div className='flex justify-between mt-12'>
+        <Input
+          type='text'
+          value={searchText}
+          onChange={handleSearch}
+          ref={ref}
+          placeholder={'Search for a country...'}
+        />
 
-      <select value={region} onChange={(e) => setRegion(e.target.value)}>
-        <option value='All'>All</option>
-        <option value='Americas'>Americas</option>
-        <option value='Africa'>Africa</option>
-        <option value='Asia'>Asia</option>
-        <option value='Europe'>Europa</option>
-      </select>
-      <List>
+        <Select value={region} onChange={(e) => setRegion(e.target.value)}>
+          {selectOptions.map((option) => (
+            <option value={option.value} key={option.value}>
+              {option.text}
+            </option>
+          ))}
+        </Select>
+      </div>
+
+      <List className='mt-12'>
         {filteredCountries.map((country) => (
           <Country key={country.id} {...country}></Country>
         ))}

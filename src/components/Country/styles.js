@@ -7,6 +7,7 @@ export const Card = styled.div`
   align-items: flex-start;
   min-height: 350px;
   width: 400px;
+
   background-color: ${(props) =>
     props.isDarkMode ? dark_blue : very_light_gray};
 
