@@ -34,7 +34,7 @@ body{
   }
    
 
-h1, h4, p, button, ul, li, button>svg, input, select{
+h1, h4, p, button, ul, li, svg, input, select{
     color:${(props) => (props.isDarkMode ? white : very_dark_blue_text)};
     
 }

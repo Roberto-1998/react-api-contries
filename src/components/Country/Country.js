@@ -13,7 +13,7 @@ const Country = ({ name, capital = [], region, population, flags, ccn3 }) => {
   return (
     <NavLink to={`/home/${ccn3}`}>
       <Card isDarkMode={isDarkMode}>
-        <img src={!svg ? svg : png} />
+        {/*   <img src={!svg ? svg : png} /> */}
         <div className='p-5'>
           <h4 className='font-bold'>{common}</h4>
           <p style={{ marginTop: '12px' }}>

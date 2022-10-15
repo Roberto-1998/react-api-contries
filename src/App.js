@@ -6,8 +6,8 @@ import Navbar from './components/Navbar/Navbar';
 import { GlobalStyle } from './styles/global';
 import { useTheme } from './context/ThemeContext';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import CountryDetail from './pages/CountryDetail/CountryDetail';
-import Home from './pages/Home/Home';
+import { Home } from './pages/Home';
+import { CountryDetail } from './pages/CountryDetail';
 
 const App = () => {
   const { isDarkMode } = useTheme();

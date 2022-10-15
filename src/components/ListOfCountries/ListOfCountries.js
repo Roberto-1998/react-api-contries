@@ -1,16 +1,11 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { List, Input, Select } from './styles';
+import { List } from './styles';
 import useGetCountries from '../../hooks/useGetCountries';
-import Country from '../Country/Country';
 
-const selectOptions = [
-  { text: 'Filter by Region', value: 'All' },
-  { text: 'America', value: 'Americas' },
-  { text: 'Africa', value: 'Africa' },
-  { text: 'Asia', value: 'Asia' },
-  { text: 'Oceania', value: 'Oceania' },
-  { text: 'Europe', value: 'Europe' },
-];
+import { selectOptions } from '../../constants/selectOptions';
+import { Country } from '../Country';
+import { SearchCountry } from '../SearchCountry';
+import { SelectRegion } from '../SelectRegion';
 
 const ListOfCountries = () => {
   const ref = useRef(null);
@@ -52,22 +47,18 @@ const ListOfCountries = () => {
 
   return (
     <>
-      <div className='flex justify-between mt-12'>
-        <Input
-          type='text'
-          value={searchText}
-          onChange={handleSearch}
-          ref={ref}
-          placeholder={'Search for a country...'}
+      <div className='flex justify-between flex-wrap mt-12'>
+        <SearchCountry
+          searchText={searchText}
+          handleSearch={handleSearch}
+          reference={ref}
         />
 
-        <Select value={region} onChange={(e) => setRegion(e.target.value)}>
-          {selectOptions.map((option) => (
-            <option value={option.value} key={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </Select>
+        <SelectRegion
+          region={region}
+          selectOptions={selectOptions}
+          setRegion={setRegion}
+        />
       </div>
 
       <List className='mt-12'>
