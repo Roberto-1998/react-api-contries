@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <h4>Where in the world?</h4>
+      <h4 className='font-bold'>Where in the world?</h4>
       <Button onClick={handleTheme}>
         {' '}
         {isDarkMode ? <FaMoon /> : <FaRegMoon />} Dark Mode
