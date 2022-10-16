@@ -44,15 +44,15 @@ const CountryDetail = () => {
           </Button>
         </Link>
 
-        <div className='flex flex-wrap justify-start md:justify-center mt-12'>
+        <div className='flex flex-wrap justify-start md:gap-16 mt-12 gap-4'>
           <ImageBox>
             <Image src={!svg ? svg : png} />
           </ImageBox>
 
-          <div className='w-3/5 ml-28 mt-20'>
+          <div className='mt-20  md:mt-0'>
             <h1 className='text-2xl font-bold'>{name.common}</h1>
-            <div className='flex flex-row flex-wrap gap-10 md:gap-20'>
-              <InfoBox>
+            <div className='flex mt-4 flex-wrap md:justify-between gap-10 md:gap-4'>
+              <InfoBox className='basis-full md:basis-2/5'>
                 <p>
                   <strong>Native Name:</strong>
                   {name.official}
@@ -75,7 +75,7 @@ const CountryDetail = () => {
                 </p>
               </InfoBox>
 
-              <InfoBox>
+              <InfoBox className='basis-full md:basis-2/5'>
                 <p>
                   <strong>Top Level Domain:</strong>
                   {tld.map((t) => (

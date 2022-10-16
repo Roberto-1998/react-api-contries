@@ -25,7 +25,7 @@ body{
     box-sizing:border-box;
     font-family: 'Nunito Sans', sans-serif; font-size:16px ;
     background-color:${(props) =>
-      props.isDarkMode ? very_dark_blue_background : white} ;
+      props.isDarkMode ? very_dark_blue_background : very_light_gray} ;
    
   }
 
@@ -40,8 +40,7 @@ h1, h4, p, button, ul, li, svg, input, select{
 }
 
 nav, input, button, select{
-  background-color:${(props) =>
-    props.isDarkMode ? dark_blue : very_light_gray};
+  background-color:${(props) => (props.isDarkMode ? dark_blue : white)};
 };
 
 
