@@ -6,14 +6,10 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
   min-height: 350px;
-  width: 400px;
+  width: 300px;
 
   background-color: ${(props) =>
     props.isDarkMode ? dark_blue : very_light_gray};
-
-  @media (min-width: 768px) {
-    width: 300px;
-  }
 
   img {
     width: 100%;

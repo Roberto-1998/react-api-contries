@@ -26,7 +26,7 @@ const ListOfCountries = () => {
 
   return (
     <>
-      <div className='flex justify-between flex-wrap mt-12'>
+      <div className='flex justify-center md:justify-between flex-wrap mt-12 gap-9'>
         <SearchCountry
           searchText={searchText}
           handleSearch={() => setSearchText(ref.current.value)}
@@ -40,7 +40,7 @@ const ListOfCountries = () => {
         />
       </div>
 
-      <List className='mt-12'>
+      <List className='mt-12 justify-center md:justify-between'>
         {filteredCountries.map((country) => (
           <Country key={country.id} {...country}></Country>
         ))}
