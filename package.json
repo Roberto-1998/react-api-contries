@@ -4,7 +4,7 @@
   "description": "![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "build": "webpack build --output public",
+    "build": "webpack",
     "lint": "eslint ./src/** --fix --ext .js,.jsx",
     "format": "prettier --write ./src/** ",
     "dev": "webpack-dev-server --port 3000 --history-api-fallback ",
