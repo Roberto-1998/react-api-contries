@@ -4,7 +4,7 @@ import { Select } from './styles';
 const SelectRegion = ({ region, selectOptions, setRegion }) => {
   return (
     <Select
-      name='regions'
+      title='region'
       value={region}
       onChange={(e) => setRegion(e.target.value)}
     >
