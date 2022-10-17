@@ -9,4 +9,10 @@ describe('WorldCountries', () => {
     cy.visit('/');
     cy.get('img');
   });
+
+  it('Check if input search is working', () => {
+    cy.get('[data-cy="search"]')
+      .type('holamundo')
+      .should('have.value', 'holamundo');
+  });
 });

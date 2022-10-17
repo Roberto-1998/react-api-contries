@@ -7,6 +7,7 @@ const SearchCountry = ({ searchText, handleSearch, reference }) => {
     <SearchBox>
       <BsSearch />
       <Input
+        data-cy='search'
         type='text'
         value={searchText}
         onChange={handleSearch}
